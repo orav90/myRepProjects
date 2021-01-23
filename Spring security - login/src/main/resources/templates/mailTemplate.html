@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+    <head></head>
+    <body>
+    <p>Hello <b th:text="${user}"></b>,<br/>
+    Thank you for signing up!<br/>
+    In order to confirm your account, please click on the next url, the link will be activated for <span th:text = ${hours}></span> hours.<br/>
+        <a th:href="@{|http://localhost:8080/api/auth/verifyAccount/${tokenUrl}|}">Confirmation link</a>
+
+    </p>
+    </body>
+</html>
+
