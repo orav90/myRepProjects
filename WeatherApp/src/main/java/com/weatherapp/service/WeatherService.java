@@ -28,7 +28,7 @@ public class WeatherService {
     //If location was not found, throw exception
     public List<Map<String, String>> getWeatherForecast(Location location) {
 
-        List<WeatherData> weatherList =  weatherRepository.findByLocationLongitudeAndLocationLatitude(location.getLongitude(),location.getLatitude())
+        List<WeatherData> weatherList =  weatherRepository.findByLocationLongitudeAndLocationLatitude(roundToHalf(location.getLongitude()),roundToHalf(location.getLatitude()))
                 .filter(s -> !s.isEmpty()).orElseThrow(() -> new LocationNotFoundException("Location was not found"));
         List<Map<String,String>> jsonFlattenListMap = new ArrayList<>();
 
@@ -67,7 +67,7 @@ public class WeatherService {
     //Return min,max and average weather forecast for a specific location
     //If location was not found, throw exception
     public WeatherStatistics getWeatherForecastSum(Location location) {
-        List<WeatherData> list  = weatherRepository.findByLocationLongitudeAndLocationLatitude(location.getLongitude(),location.getLatitude())
+        List<WeatherData> list  = weatherRepository.findByLocationLongitudeAndLocationLatitude(roundToHalf(location.getLongitude()),roundToHalf(location.getLatitude()))
                 .filter(s -> !s.isEmpty()).orElseThrow(() -> new LocationNotFoundException("Location was not found"));
 
         Double maxTemp = list.stream().max(Comparator.comparing(WeatherData::getTemperatureCelsius)).get().getTemperatureCelsius();
@@ -86,5 +86,10 @@ public class WeatherService {
         );
 
         return weatherStatistics;
+    }
+
+    //Round to the nearest half
+    public double roundToHalf(double d) {
+        return Math.round(d * 2) / 2.0;
     }
 }
