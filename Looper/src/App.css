@@ -1,0 +1,79 @@
+img {
+  width: 150px;
+  height: 150px;
+}
+
+.samplesContainer {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  justify-content: center;
+}
+
+.loopmachine {
+  text-align: center;
+  color: rgb(243, 229, 99);
+}
+
+.playButton {
+  text-align: center;
+  width: 150px;
+  height: 30px;
+  border: 3px solid black;
+  font-weight: bold;
+  color: rgb(0, 0, 0);
+  background-color: #93f193;
+  border-radius: 20px;
+}
+
+.recordButton {
+  text-align: center;
+  width: 125px;
+  height: 30px;
+  border: 3px solid black;
+  font-weight: bold;
+  color: rgb(0, 0, 0);
+  background-color: #c53e3e;
+  border-radius: 20px;
+}
+
+.loadButton {
+  text-align: center;
+  width: 125px;
+  height: 30px;
+  border: 3px solid black;
+  font-weight: bold;
+  color: rgb(0, 0, 0);
+  background-color: #eef592;
+  border-radius: 20px;
+}
+
+.loadButton:disabled,
+.loadButton[disabled] {
+  border: 1px solid #999999;
+  background-color: #cccccc;
+  color: #666666;
+}
+
+.padContainer {
+  padding: 20px;
+  font-size: 30px;
+  text-align: center;
+}
+.homepage-bgimage {
+  background: url("https://www.pngix.com/pngfile/middle/335-3355117_rock-ola-bubbler-black-cd8-jukebox-klein-kaufen.png");
+  height: 100vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.record {
+  color: rgb(179, 5, 5);
+  font-size: 30px;
+}
+
+.arrow {
+  position: absolute;
+  bottom: 50%;
+  left: 50%;
+}
